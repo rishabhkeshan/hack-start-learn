@@ -1,5 +1,5 @@
 $.getJSON(
-  "https://github.com/rishabhkeshan/hack-start-learn/blob/master/data.json",
+  "https://github.com/rishabhkeshan/hack-start-learn/blob/main/data.json",
   (data) => {
     let profiles = data.profiles;
 
