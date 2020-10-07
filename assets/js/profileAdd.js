@@ -1,19 +1,17 @@
-$.getJSON(
-  "https://github.com/rishabhkeshan/hack-start-learn/blob/main/data.json",
-  (data) => {
-    let profiles = data.profiles;
+$.getJSON("./data.json", (data) => {
+  let profiles = data.profiles;
 
-    let cardParent = document.getElementById("profile-cards");
-    for (let index = 0; index < profiles.length; index += 1) {
-      let card = document.createElement("div");
-      card.classList.add("col-12");
-      card.classList.add("col-sm-6");
-      card.classList.add("col-lg-4");
-      card.classList.add("p-3");
-      card.classList.add("first-card-body");
+  let cardParent = document.getElementById("profile-cards");
+  for (let index = 0; index < profiles.length; index += 1) {
+    let card = document.createElement("div");
+    card.classList.add("col-12");
+    card.classList.add("col-sm-6");
+    card.classList.add("col-lg-4");
+    card.classList.add("p-3");
+    card.classList.add("first-card-body");
 
-      let profile = profiles[index];
-      card.innerHTML = `<div class='card'>
+    let profile = profiles[index];
+    card.innerHTML = `<div class='card'>
             <div class='column'>
               <div class='col-12 ftc-image'>
                 <img src='${profile.image_link}' class='card-img' alt='${profile.name}' onerror="this.style.display='none'">
@@ -32,14 +30,13 @@ $.getJSON(
             </div>
           </div>
       `;
-      cardParent.appendChild(card);
-    }
-    if (!profiles.length) {
-      let card = document.createElement("div");
-      card.classList.add("col-12");
-      card.innerHTML =
-        "<h1>This section is empty. You can check out other works by us.</h1>";
-      cardParent.append(card);
-    }
+    cardParent.appendChild(card);
   }
-);
+  if (!profiles.length) {
+    let card = document.createElement("div");
+    card.classList.add("col-12");
+    card.innerHTML =
+      "<h1>This section is empty. You can check out other works by us.</h1>";
+    cardParent.append(card);
+  }
+});
